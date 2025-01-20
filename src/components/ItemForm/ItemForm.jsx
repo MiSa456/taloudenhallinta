@@ -27,7 +27,12 @@ function ItemForm(props) {
   const {values, handleChange, handleSubmit } = useForm(submit, initialState, false)
 
   const handleCancel = () => {
-    navigate('/') 
+    navigate(-1) 
+  }
+
+  const handleDelete = () => {
+    props.onItemDelete(values.id)
+    navigate(-1)
   }
 
   return (
@@ -91,6 +96,15 @@ function ItemForm(props) {
               </Button>
             </div>
           </div>
+
+          { props.onItemDelete ? 
+            <div className={styles.itemform_row}>
+              <div>
+                <Button secondary onClick={handleDelete}>POISTA</Button>
+              </div>
+              <div></div>
+            </div>
+            : null } 
 
         </div>
       </form>
