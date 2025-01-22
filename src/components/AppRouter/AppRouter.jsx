@@ -21,7 +21,8 @@ function AppRouter(props) {
         { path: "settings", element: <Settings /> },
         { path: "edit/:id",
           element: <EditItem onItemSubmit={props.onItemSubmit} 
-                             onItemDelete={props.onItemDelete} />,
+                             onItemDelete={props.onItemDelete}
+                             typelist={props.typelist} />,
           loader: ({params}) => {
             const item = props.data.filter(item => item.id === params.id).shift()
             if (item) {
@@ -30,7 +31,9 @@ function AppRouter(props) {
               throw new Response("Not Found", { status: 404 })
             }
           } },
-        { path: "add", element: <AddItem onItemSubmit={props.onItemSubmit} /> },
+        { path: "add", 
+            element: <AddItem onItemSubmit={props.onItemSubmit} 
+                              typelist={props.typelist} /> },  
       ]
     }
   ])
