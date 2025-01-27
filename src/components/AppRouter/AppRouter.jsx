@@ -20,7 +20,9 @@ function AppRouter(props) {
         { path: "stats", element: <Stats data={props.data} /> },
         { path: "settings",
           element: <Settings typelist={props.typelist}
-                             onTypeSubmit={props.onTypeSubmit} /> },
+                             onTypeSubmit={props.onTypeSubmit}
+                             user={props.user}
+                             auth={props.auth} /> },
         { path: "edit/:id",
           element: <EditItem onItemSubmit={props.onItemSubmit} 
                              onItemDelete={props.onItemDelete}
