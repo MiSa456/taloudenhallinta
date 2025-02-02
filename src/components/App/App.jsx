@@ -1,6 +1,6 @@
 import AppRouter from '../AppRouter'
 import { useState } from 'react'
-import useLocalStorage from '../../shared/uselocalstorage'
+import useLocalstorage from '../../shared/useLocalstorage'
 import firebase, { auth } from './firebase.js'
 import { addDoc, collection, deleteDoc, doc, getFirestore, onSnapshot, orderBy, query, setDoc  } from 'firebase/firestore'
 import { useEffect } from 'react'
